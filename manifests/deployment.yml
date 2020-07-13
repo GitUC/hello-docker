@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: czhellodocker 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: czhellodocker 
+    spec:
+      containers:
+        - name: czhellodocker 
+          image: czcontainerreg.azurecr.io/czhellodocker
+          ports:
+          - containerPort: 80
