@@ -1,16 +1,22 @@
-apiVersion : apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: czhellodocker 
+  name: czhellodocker
 spec:
-  replicas: 1
+  selector:
+    matchLabels:
+      app: czhellodocker
   template:
     metadata:
       labels:
-        app: czhellodocker 
+        app: czhellodocker
     spec:
       containers:
-        - name: czhellodocker 
-          image: czcontainerreg.azurecr.io/czhellodocker
-          ports:
-          - containerPort: 80
+      - name: hello-docker-container
+        image: czcontainerreg.azurecr.io/czhellodocker:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
