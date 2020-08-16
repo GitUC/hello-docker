@@ -5,9 +5,6 @@
 trigger:
 - master
 
-resources:
-- repo: self
-
 variables:
 
   # Container registry service connection established during pipeline creation
@@ -15,13 +12,11 @@ variables:
   imageRepository: 'gituchellodocker'
   containerRegistry: 'czaks.azurecr.io'
   dockerfilePath: '**/Dockerfile'
-  tag: '$(Build.BuildId)'
-  imagePullSecret: 'czaks9018-auth'
-
+  tag: '$(Build.Number)'
+  
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
   
-
 stages:
 - stage: Build
   displayName: Build stage
@@ -57,14 +52,7 @@ stages:
     strategy:
       runOnce:
         deploy:
-          steps:
-          - task: KubernetesManifest@0
-            displayName: Create imagePullSecret
-            inputs:
-              action: createSecret
-              secretName: $(imagePullSecret)
-              dockerRegistryEndpoint: $(dockerRegistryServiceConnection)
-              
+          steps:    
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
             inputs:
@@ -72,8 +60,6 @@ stages:
               manifests: |
                 $(Pipeline.Workspace)/manifests/deployment.yml
                 $(Pipeline.Workspace)/manifests/service.yml
-              imagePullSecrets: |
-                $(imagePullSecret)
               containers: |
                 $(containerRegistry)/$(imageRepository):$(tag)
 
