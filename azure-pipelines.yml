@@ -12,7 +12,7 @@ variables:
   imageRepository: 'czhellodocker'
   containerRegistry: 'czaks.azurecr.io'
   dockerfilePath: '**/Dockerfile'
-  tag: '$(Build.BuildId)'
+  tag: '$(Build.Number)'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
