@@ -12,7 +12,7 @@ variables:
   imageRepository: 'gituchellodocker'
   containerRegistry: 'czaks.azurecr.io'
   dockerfilePath: '**/Dockerfile'
-  tag: '$(Build.Number)'
+  tag: '$(Build.number)'
   
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
