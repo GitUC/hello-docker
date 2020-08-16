@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: hello-docker-container
-        image: czcontainerreg.azurecr.io/czhellodocker:v1
+        image: czaks.azurecr.io/czhellodocker:v1
         resources:
           limits:
             memory: "128Mi"

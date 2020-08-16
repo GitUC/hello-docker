@@ -1,10 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-    name: czhellodocker
+  name: czhellodocker
 spec:
-    type: LoadBalancer
-    ports:
-    - port: 80 
-    selector:
-        app: czhellodocker
+  selector:
+    app: czhellodocker
+  ports:
+  - port: 8080
+    targetPort: 80
+  type: LoadBalancer
