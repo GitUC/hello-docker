@@ -43,5 +43,12 @@ namespace HelloDocker.Controllers
         {
             return Ok("Sydney, Melbourne, Canberra, Beijing, Nanjing");
         }
+
+        [HttpGet]
+        [Route("states")]
+        public IActionResult GetStates()
+        {
+            return Ok("NSW, VIC, NT, WA, SA, TAS, QLD, ACT");
+        }
     }
 }
