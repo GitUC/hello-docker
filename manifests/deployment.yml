@@ -13,10 +13,13 @@ spec:
     spec:
       containers:
       - name: hello-docker-container
-        image: czaks.azurecr.io/czhellodocker:v1
+        image: czacrtest.azurecr.io/czhellodocker:v1
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
         - containerPort: 80
+
+
+
