@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: czhellodocker
+  name: czhellodocker-deployment
 spec:
   selector:
     matchLabels:
-      app: czhellodocker
+      app: czhellodocker-pod
   template:
     metadata:
       labels:
-        app: czhellodocker
+        app: czhellodocker-pod
     spec:
       containers:
       - name: hello-docker-container
