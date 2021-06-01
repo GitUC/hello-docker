@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace HelloDocker.Controllers
 {
     [ApiController]
-    [Route("api/weatherforecast")]
+    [Route("api")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
