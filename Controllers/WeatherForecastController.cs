@@ -41,7 +41,7 @@ namespace HelloDocker.Controllers
         [Route("cities")]
         public IActionResult GetCities()
         {
-            return Ok("Sydney, Melbourne, Canberra, Beijing, Nanjing, New York, London, Eastwood, Chatswood, Kunming");
+            return Ok("Sydney, Melbourne, Canberra, Beijing, Nanjing, New York, London, Eastwood, Chatswood, Kunming, North Sydney");
         }
 
         [HttpGet]
